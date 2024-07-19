@@ -4,7 +4,7 @@ import functools as ft
 from dataclasses import dataclass
 
 from telegram import Update
-from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, Application
+from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, Application, filters
 
 from . import llmmanager as llm
 
@@ -37,6 +37,6 @@ async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 def run_bot(token: str) -> Application:
     app = ApplicationBuilder().token(token).build()
 
-    app.add_handler(MessageHandler(filters=None, callback=hello))
+    app.add_handler(MessageHandler(filters=filters.REPLY, callback=hello))
 
     app.run_polling()
