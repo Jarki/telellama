@@ -1,0 +1,28 @@
+services:
+  telellama:
+    image: telellama
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - ollama-docker-debug
+    volumes:
+     - .:/app
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434
+    volumes:
+      - ./volumes/ollama:/root/.ollama
+    container_name: ollama
+    pull_policy: always
+    restart: unless-stopped
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=0.0.0.0
+    networks:
+      - ollama-docker-debug
+
+networks:
+  ollama-docker-debug:
+    external: false
