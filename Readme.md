@@ -1,3 +1,16 @@
+# Telellama
+
+- [Telellama](#telellama)
+- [What](#what)
+- [Usage guide](#usage-guide)
+  - [Prerequisites](#prerequisites)
+  - [How to run your own instance](#how-to-run-your-own-instance)
+  - [Bot documentation](#bot-documentation)
+- [Development guide](#development-guide)
+  - [General](#general)
+  - [VSCode extensions used inside of the container](#vscode-extensions-used-inside-of-the-container)
+  - [Features used](#features-used)
+
 # What
 
 A simple project that integrates an llm into a Telegram bot using Python and Ollama. The bot is intended to be used in group chats.
