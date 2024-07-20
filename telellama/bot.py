@@ -27,6 +27,9 @@ class TelegramBot:
         asyncio.run_coroutine_threadsafe(update.message.reply_text(response_text), request.event_loop)
 
     async def _on_reply(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        if update.message.reply_to_message and update.message.reply_to_message.from_user.id != context.bot.id:
+            return
+
         logger.debug('Reply to message')
         request = LLMRequestTG(request_text=update.message.text, update=update, event_loop=asyncio.get_event_loop())
 
