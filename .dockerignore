@@ -24,5 +24,6 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 **/volumes
+**/.env.example
 LICENSE
 README.md
