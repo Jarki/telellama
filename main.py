@@ -16,8 +16,8 @@ logger = logging.basicConfig(
     format='%(asctime)s.%(msecs)03d [%(levelname)s] - %(name)s, %(funcName)s - %(message)s'
 )
 
-OLLAMA_HOST = 'http://ollama:11434'
-MODEL_NAME = 'llama2-uncensored'
+OLLAMA_HOST = os.getenv('OLLAMA_HOST', 'http://ollama:11434')
+MODEL_NAME = os.getenv('MODEL_NAME', 'llama3')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
 
